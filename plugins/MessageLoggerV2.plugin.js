@@ -2689,13 +2689,13 @@ module.exports = class MessageLoggerV2 {
         if (!notificationsBlacklisted) {
           if (guild ? this.settings.toastToggles.deleted && ((isLocalUser && !this.settings.toastToggles.disableToastsForLocal) || !isLocalUser) : this.settings.toastTogglesDMs.deleted && !isLocalUser) {
             if (this.settings.useNotificationsInstead) {
-              XenoLib.Notifications.danger(`Message deleted from ${this.getLiteralName(channel.guild_id, channel.id, true)}`, {
+              XenoLib.Notifications.danger(`DM ${this.getLiteralName(channel.guild_id, channel.id, true)}`, {
                 onClick: () => this.openWindow('deleted'),
                 onContext: () => this.jumpToMessage(dispatch.channelId, dispatch.id, guild && guild.id),
                 timeout: 4500
               });
             } else {
-              this.showToast(`Message deleted from ${this.getLiteralName(channel.guild_id, channel.id)}`, {
+              this.showToast(`Kanal ${this.getLiteralName(channel.guild_id, channel.id)}`, {
                 type: 'error',
                 onClick: () => this.openWindow('deleted'),
                 onContext: () => this.jumpToMessage(dispatch.channelId, dispatch.id, guild && guild.id),
